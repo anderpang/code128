@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Code128Auto</title>
+    <style>
+        .box{max-width:600px;width:90%;margin:2em auto;}
+        input{font-size:1.2em;}
+        input[type="submit"]{height:1.5em;line-height:1.5em;min-width:6em;-webkit-appearance:none;}
+
+        .barcode{min-height:100px;}
+        .barcode>div{width:1px;height:50px;float:left;}
+        .barcode>div.b{background-color:#000;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="barcode"></div>
+        <form>
+            <input value="123" />
+            <input type="submit" value="编码" />
+        </form>
+    </div>
+    <script src="js/code128.js"></script>
+    <script>
+         var barcode=document.querySelector(".barcode");
+         var form=document.querySelector("form");
+
+         form.addEventListener("submit",function(e){
+             var input=this.elements[0].value;
+             e.preventDefault();
+
+             barcode.innerHTML=code128(input,"DOM");
+
+         });
+
+         var evt=document.createEvent("HTMLEvents");
+         evt.initEvent("submit",false,false);
+         form.dispatchEvent(evt);
+         
+    </script>
+</body>
+</html>
