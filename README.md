@@ -1,6 +1,6 @@
 # code128
 
-### ![demo](http://www.wuweierwei.com/demo/barcode.html)
+### [demo](http://www.wuweierwei.com/demo/barcode.html)
 
 ```javascript
   import code128 from "js/code128.js";
